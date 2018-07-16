@@ -14,6 +14,7 @@
 		E4F29EAB20FD140F00BD3E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F29EA920FD140F00BD3E53 /* LaunchScreen.storyboard */; };
 		E4F29EB620FD140F00BD3E53 /* EosDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EB520FD140F00BD3E53 /* EosDemoTests.swift */; };
 		E4F29EC120FD140F00BD3E53 /* EosDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EC020FD140F00BD3E53 /* EosDemoUITests.swift */; };
+		E4F29ECF20FD172300BD3E53 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E4F29ECE20FD172300BD3E53 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E4F29EBC20FD140F00BD3E53 /* EosDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EosDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F29EC020FD140F00BD3E53 /* EosDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosDemoUITests.swift; sourceTree = "<group>"; };
 		E4F29EC220FD140F00BD3E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F29ECE20FD172300BD3E53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		E4F29E9420FD140D00BD3E53 = {
 			isa = PBXGroup;
 			children = (
+				E4F29ECE20FD172300BD3E53 /* README.md */,
 				E4F29E9F20FD140D00BD3E53 /* EosDemo */,
 				E4F29EB420FD140F00BD3E53 /* EosDemoTests */,
 				E4F29EBF20FD140F00BD3E53 /* EosDemoUITests */,
@@ -231,6 +234,7 @@
 			files = (
 				E4F29EAB20FD140F00BD3E53 /* LaunchScreen.storyboard in Resources */,
 				E4F29EA820FD140F00BD3E53 /* Assets.xcassets in Resources */,
+				E4F29ECF20FD172300BD3E53 /* README.md in Resources */,
 				E4F29EA620FD140D00BD3E53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
