@@ -59,7 +59,4 @@ class ChainInfoTests: XCTestCase {
         """
         XCTAssertNil(request.decode(json.data(using: .utf8)!))
     }
-    
-
-    
 }
