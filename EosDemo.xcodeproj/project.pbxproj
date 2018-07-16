@@ -15,6 +15,11 @@
 		E4F29EB620FD140F00BD3E53 /* EosDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EB520FD140F00BD3E53 /* EosDemoTests.swift */; };
 		E4F29EC120FD140F00BD3E53 /* EosDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EC020FD140F00BD3E53 /* EosDemoUITests.swift */; };
 		E4F29ECF20FD172300BD3E53 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E4F29ECE20FD172300BD3E53 /* README.md */; };
+		E4F29ED120FD1F7800BD3E53 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29ED020FD1F7800BD3E53 /* Request.swift */; };
+		E4F29ED320FD26AC00BD3E53 /* ChainInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29ED220FD26AC00BD3E53 /* ChainInfoTests.swift */; };
+		E4F29ED420FD28B700BD3E53 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29ED020FD1F7800BD3E53 /* Request.swift */; };
+		E4F29ED620FD2D1000BD3E53 /* ChainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29ED520FD2D1000BD3E53 /* ChainInfo.swift */; };
+		E4F29ED720FD2D1000BD3E53 /* ChainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29ED520FD2D1000BD3E53 /* ChainInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,9 @@
 		E4F29EC020FD140F00BD3E53 /* EosDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosDemoUITests.swift; sourceTree = "<group>"; };
 		E4F29EC220FD140F00BD3E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4F29ECE20FD172300BD3E53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4F29ED020FD1F7800BD3E53 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E4F29ED220FD26AC00BD3E53 /* ChainInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainInfoTests.swift; sourceTree = "<group>"; };
+		E4F29ED520FD2D1000BD3E53 /* ChainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,8 @@
 				E4F29EA720FD140F00BD3E53 /* Assets.xcassets */,
 				E4F29EA920FD140F00BD3E53 /* LaunchScreen.storyboard */,
 				E4F29EAC20FD140F00BD3E53 /* Info.plist */,
+				E4F29ED020FD1F7800BD3E53 /* Request.swift */,
+				E4F29ED520FD2D1000BD3E53 /* ChainInfo.swift */,
 			);
 			path = EosDemo;
 			sourceTree = "<group>";
@@ -115,6 +125,7 @@
 			children = (
 				E4F29EB520FD140F00BD3E53 /* EosDemoTests.swift */,
 				E4F29EB720FD140F00BD3E53 /* Info.plist */,
+				E4F29ED220FD26AC00BD3E53 /* ChainInfoTests.swift */,
 			);
 			path = EosDemoTests;
 			sourceTree = "<group>";
@@ -261,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F29EA320FD140D00BD3E53 /* ViewController.swift in Sources */,
+				E4F29ED620FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
+				E4F29ED120FD1F7800BD3E53 /* Request.swift in Sources */,
 				E4F29EA120FD140D00BD3E53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +283,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F29EB620FD140F00BD3E53 /* EosDemoTests.swift in Sources */,
+				E4F29ED720FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
+				E4F29ED420FD28B700BD3E53 /* Request.swift in Sources */,
+				E4F29ED320FD26AC00BD3E53 /* ChainInfoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
