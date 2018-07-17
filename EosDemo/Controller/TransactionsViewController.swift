@@ -31,8 +31,7 @@ class TransactionsViewController: UIViewController {
         }
         set {
             if transactions.count != 0 {
-                let newIndex = _currentIndex + newValue
-                _currentIndex = abs(newIndex % transactions.count)
+                _currentIndex = min(max(newValue, 0), transactions.count - 1)
             }
             updateDisplay()
         }
@@ -48,7 +47,7 @@ class TransactionsViewController: UIViewController {
     }
 
     private func updateDisplay() {
-        currentTransactionsLabel.text = String(currentIndex) + " / " + String(transactions.count)
+        currentTransactionsLabel.text = String(currentIndex + 1) + " / " + String(transactions.count)
         
         if transactions.count == 0 {
             return
