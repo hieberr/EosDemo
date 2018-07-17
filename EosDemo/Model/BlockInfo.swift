@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Contains all the information in a block.
 struct BlockInfo {
     let timestamp: String
     let producer: String
@@ -19,7 +20,7 @@ struct BlockInfo {
     let newProducers: [String]? // Not sure what this data would be. Assuming [String] for now.
     let headerExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
     let producerSignature: String
-    let transactions: [String] // Not sure what this data would be. Assuming [String] for now.
+    let transactions: [TransactionHeader] // Not sure what this data would be. Assuming [String] for now.
     let blockExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
     let id: String
     let blockNum: Int
@@ -68,7 +69,7 @@ extension BlockInfo : Decodable {
         
         headerExtensions = try container.decode([String].self, forKey: .headerExtensions)
         producerSignature = try container.decode(String.self, forKey: .producerSignature)
-        transactions = try container.decode([String].self, forKey: .transactions)
+        transactions = try container.decode([TransactionHeader].self, forKey: .transactions)
         blockExtensions = try container.decode([String].self, forKey: .blockExtensions)
         id = try container.decode(String.self, forKey: .id)
         blockNum = try container.decode(Int.self, forKey: .blockNum)

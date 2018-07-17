@@ -43,7 +43,7 @@ class RequestTests: XCTestCase {
     func test_fetchBlockInfo() {
         let expectation = self.expectation(description: "received response")
         
-        let blockId = "005f5746996fb8385ba88be4a992bedf882845640d8064b2b63f98867d83b9ad"
+        let blockId = "005f1de277ee9bc9d887a563322785c2d0fa2d4aab05ccd655ec9cb64aa47db3"
         let request = BlockInfoRequest(url: URL(string: "https://api.eosnewyork.io/v1/chain/get_block")!, blockId: blockId)
         request.load(withCompletion: { info in
             expectation.fulfill()

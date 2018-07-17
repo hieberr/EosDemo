@@ -82,8 +82,6 @@ class BlockInfoRequest {
 
 extension BlockInfoRequest: Request {
     func decode(_ data: Data) -> BlockInfo? {
-        print(String(data: data, encoding: .utf8))
-
         let decoded = try?JSONDecoder().decode(BlockInfo.self, from: data)
         return decoded
     }

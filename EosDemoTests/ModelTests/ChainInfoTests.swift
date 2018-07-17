@@ -32,9 +32,9 @@ class ChainInfoTests: XCTestCase {
             "recent_slots": "1111111111111111111111111111111111111111111111111111111111111111",
             "participation_rate": "1.00000000000000000"
         }
-        """
-        let request = ChainInfoRequest(url: URL(string:"http://fakeurl.com")!)
-        if let result = request.decode(json.data(using: .utf8)!) {
+        """.data(using: .utf8)!
+        
+        if let result = try?JSONDecoder().decode(ChainInfo.self, from: json) {
             XCTAssertEqual(result.headBlockId, "0003f60677f3707f0704f16177bf5f007ebd45eb6efbb749fb1c468747f72046")
             XCTAssertEqual(result.headBlockNum, 259590)
         } else {
@@ -42,8 +42,8 @@ class ChainInfoTests: XCTestCase {
         }
         
         // ======= Test invalid json input: ==========
-        json = ""
-        XCTAssertNil(request.decode(json.data(using: .utf8)!))
+        json = "".data(using: .utf8)!
+        XCTAssertNil(try?JSONDecoder().decode(ChainInfo.self, from: json))
 
         json = """
         {
@@ -56,7 +56,7 @@ class ChainInfoTests: XCTestCase {
         "recent_slots": "1111111111111111111111111111111111111111111111111111111111111111",
         "participation_rate": "1.00000000000000000"
         }
-        """
-        XCTAssertNil(request.decode(json.data(using: .utf8)!))
+        """.data(using: .utf8)!
+        XCTAssertNil(try?JSONDecoder().decode(ChainInfo.self, from: json))
     }
 }

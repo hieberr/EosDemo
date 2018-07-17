@@ -24,6 +24,9 @@
 		E4F29EDA20FD2DB800BD3E53 /* BlockInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29ED820FD2DB800BD3E53 /* BlockInfo.swift */; };
 		E4F29EDC20FD375C00BD3E53 /* BlockInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EDB20FD375C00BD3E53 /* BlockInfoTests.swift */; };
 		E4F29EDE20FD4A5600BD3E53 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EDD20FD4A5600BD3E53 /* RequestTests.swift */; };
+		E4F29EE220FD625E00BD3E53 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EE120FD625E00BD3E53 /* Transaction.swift */; };
+		E4F29EE320FD625E00BD3E53 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EE120FD625E00BD3E53 /* Transaction.swift */; };
+		E4F29EE620FD7B1600BD3E53 /* TransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EE520FD7B1600BD3E53 /* TransactionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,8 @@
 		E4F29ED820FD2DB800BD3E53 /* BlockInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockInfo.swift; sourceTree = "<group>"; };
 		E4F29EDB20FD375C00BD3E53 /* BlockInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockInfoTests.swift; sourceTree = "<group>"; };
 		E4F29EDD20FD4A5600BD3E53 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		E4F29EE120FD625E00BD3E53 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E4F29EE520FD7B1600BD3E53 /* TransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +156,7 @@
 				E4F29ED020FD1F7800BD3E53 /* Request.swift */,
 				E4F29ED520FD2D1000BD3E53 /* ChainInfo.swift */,
 				E4F29ED820FD2DB800BD3E53 /* BlockInfo.swift */,
+				E4F29EE120FD625E00BD3E53 /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +167,7 @@
 				E4F29ED220FD26AC00BD3E53 /* ChainInfoTests.swift */,
 				E4F29EDB20FD375C00BD3E53 /* BlockInfoTests.swift */,
 				E4F29EDD20FD4A5600BD3E53 /* RequestTests.swift */,
+				E4F29EE520FD7B1600BD3E53 /* TransactionTests.swift */,
 			);
 			path = ModelTests;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 			files = (
 				E4F29EA320FD140D00BD3E53 /* ViewController.swift in Sources */,
 				E4F29ED620FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
+				E4F29EE220FD625E00BD3E53 /* Transaction.swift in Sources */,
 				E4F29ED920FD2DB800BD3E53 /* BlockInfo.swift in Sources */,
 				E4F29ED120FD1F7800BD3E53 /* Request.swift in Sources */,
 				E4F29EA120FD140D00BD3E53 /* AppDelegate.swift in Sources */,
@@ -310,7 +318,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F29EB620FD140F00BD3E53 /* EosDemoTests.swift in Sources */,
+				E4F29EE620FD7B1600BD3E53 /* TransactionTests.swift in Sources */,
 				E4F29EDE20FD4A5600BD3E53 /* RequestTests.swift in Sources */,
+				E4F29EE320FD625E00BD3E53 /* Transaction.swift in Sources */,
 				E4F29ED720FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
 				E4F29EDA20FD2DB800BD3E53 /* BlockInfo.swift in Sources */,
 				E4F29EDC20FD375C00BD3E53 /* BlockInfoTests.swift in Sources */,

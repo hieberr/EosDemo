@@ -20,7 +20,7 @@ class BlockInfoTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_decodeFromJson() {
+    func test_blockInfoDecodeFromJson() {
         var json = """
         {
             "timestamp":"2018-07-16T19:54:35.500",
@@ -39,9 +39,8 @@ class BlockInfoTests: XCTestCase {
             "block_num":6233571,
             "ref_block_prefix":3526899558
         }
-        """
-        let request = BlockInfoRequest(url: URL(string:"http://fakeurl.com")!, blockId: "")
-        if let result = request.decode(json.data(using: .utf8)!) {
+        """.data(using: .utf8)!
+        if let result = try?JSONDecoder().decode(BlockInfo.self, from: json) {
             XCTAssertEqual(result.timestamp, "2018-07-16T19:54:35.500")
             XCTAssertEqual(result.producer, "eosbixinboot")
             XCTAssertEqual(result.confirmed, false)
@@ -61,9 +60,9 @@ class BlockInfoTests: XCTestCase {
         }
         
         // ======= Test invalid json input: ==========
-        json = ""
-        XCTAssertNil(request.decode(json.data(using: .utf8)!))
-        
+        json = "".data(using: .utf8)!
+        XCTAssertNil(try?JSONDecoder().decode(BlockInfo.self, from: json))
+
         json = """
         {
         "timestamp":"2018-07-16T19:54:35.500",
@@ -82,8 +81,7 @@ class BlockInfoTests: XCTestCase {
         "block_num":6233571,
         "ref_block_prefix":3526899558
         }
-        """
-        XCTAssertNil(request.decode(json.data(using: .utf8)!))
+        """.data(using: .utf8)!
+        XCTAssertNil(try?JSONDecoder().decode(BlockInfo.self, from: json))
     }
-    
 }
