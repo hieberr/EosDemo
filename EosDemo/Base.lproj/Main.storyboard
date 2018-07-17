@@ -19,16 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="zqb-bj-j5d">
-                                <rect key="frame" x="0.0" y="221" width="375" height="225"/>
+                                <rect key="frame" x="0.0" y="188.5" width="375" height="290"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show block info for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rF-cr-0tN" userLabel="Title">
-                                        <rect key="frame" x="65.5" y="0.0" width="244.5" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Feg-QV-xjW" userLabel="HeadBlockButton">
-                                        <rect key="frame" x="89.5" y="46" width="196" height="36"/>
+                                        <rect key="frame" x="89.5" y="0.0" width="196" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <inset key="contentEdgeInsets" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
                                         <state key="normal" title="Head Block"/>
@@ -37,13 +31,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCf-lJ-KTL">
-                                        <rect key="frame" x="176" y="93" width="23.5" height="20.5"/>
+                                        <rect key="frame" x="176" y="47" width="23.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="byJ-KK-EJE">
-                                        <rect key="frame" x="12" y="124.5" width="351" height="100.5"/>
+                                        <rect key="frame" x="12" y="78.5" width="351" height="100.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Block ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeR-Pn-gD9">
                                                 <rect key="frame" x="142" y="0.0" width="67.5" height="20.5"/>
@@ -68,6 +62,40 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-AY-3Fr" userLabel="statusView">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status text multi line test abc lkjfdlkj dflkj dflkj sdflkj " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VY-O2-aKO" userLabel="statusLabel">
+                                                <rect key="frame" x="12" y="8" width="351" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="drd-Gd-gmY" userLabel="connectionIndicator">
+                                                <rect key="frame" x="177.5" y="40" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sH0-TQ-uKh">
+                                                <rect key="frame" x="151.5" y="58" width="72" height="42"/>
+                                                <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="onCancelButton:" destination="Mla-jo-e2X" eventType="touchUpInside" id="rwc-Bt-xZ9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="4VY-O2-aKO" firstAttribute="leading" secondItem="qHC-AY-3Fr" secondAttribute="leading" constant="12" id="2bH-8T-kF9"/>
+                                            <constraint firstItem="drd-Gd-gmY" firstAttribute="centerX" secondItem="qHC-AY-3Fr" secondAttribute="centerX" id="CTN-aP-okz"/>
+                                            <constraint firstItem="sH0-TQ-uKh" firstAttribute="centerX" secondItem="qHC-AY-3Fr" secondAttribute="centerX" id="J3W-f8-kMj"/>
+                                            <constraint firstAttribute="height" constant="100" id="JUK-5P-znb"/>
+                                            <constraint firstItem="drd-Gd-gmY" firstAttribute="top" secondItem="4VY-O2-aKO" secondAttribute="bottom" constant="8" id="Myw-PZ-D7l"/>
+                                            <constraint firstAttribute="bottom" secondItem="sH0-TQ-uKh" secondAttribute="bottom" id="aLi-U6-cMN"/>
+                                            <constraint firstItem="4VY-O2-aKO" firstAttribute="top" secondItem="qHC-AY-3Fr" secondAttribute="top" constant="8" id="jGM-2D-OHQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="4VY-O2-aKO" secondAttribute="trailing" constant="12" id="pDt-DF-VG4"/>
+                                            <constraint firstItem="drd-Gd-gmY" firstAttribute="centerY" secondItem="qHC-AY-3Fr" secondAttribute="centerY" id="raA-UK-Cwa"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -82,12 +110,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Select Block" id="Vbt-LC-XHW"/>
                     <connections>
+                        <outlet property="connectionIndicator" destination="drd-Gd-gmY" id="hgK-jc-o6a"/>
+                        <outlet property="statusLabel" destination="4VY-O2-aKO" id="zL3-ps-gU7"/>
+                        <outlet property="statusView" destination="qHC-AY-3Fr" id="GyH-yG-Ex2"/>
                         <segue destination="R9e-vH-0WD" kind="show" identifier="ShowBlockInfoSegue" id="hVV-Qa-rdz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZW-hN-JiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="67"/>
+            <point key="canvasLocation" x="829.60000000000002" y="66.11694152923539"/>
         </scene>
         <!--BlockInfoViewController-->
         <scene sceneID="1NW-qi-hoi">
