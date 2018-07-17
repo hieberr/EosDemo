@@ -49,7 +49,7 @@ class BlockInfoTests: XCTestCase {
             XCTAssertEqual(result.actionMerckleRoot, "ac64b1e98542dabd1c9df403fce53624c89bc3b578f0829b4c770d3d0865b3ae")
             XCTAssertEqual(result.scheduleVersion, 143)
             XCTAssertNil(result.newProducers)
-            XCTAssertEqual(result.headerExtensions.count, 0)
+            //XCTAssertEqual(result.headerExtensions.count, 0)
             XCTAssertEqual(result.producerSignature, "SIG_K1_K8RznJ1wvai1tN9wPvw2KARX9SVRy1ezkCswXqesj4rXsDdnMrU1P2j6cJU6HP7SNRrMto683UNQwqmx7UjV6467jgay7H")
             XCTAssertEqual(result.transactions.count, 0)
             XCTAssertEqual(result.id, "005f1de30773f13c663738d2fb73a652a5a0e97622bef21a4eb741d6de6e3e52")

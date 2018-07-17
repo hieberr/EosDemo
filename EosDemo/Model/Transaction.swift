@@ -10,10 +10,10 @@
 import Foundation
 struct Action {
     struct Data {
-        let from: String
-        let to: String
-        let quantity: String
-        let memo: String
+        let from: String?
+        let to: String?
+        let quantity: String?
+        let memo: String?
     }
     
     struct Authorization {
@@ -24,7 +24,7 @@ struct Action {
     let account: String
     let name: String
     let authorization: [Action.Authorization]
-    let data: Action.Data
+    let data: Action.Data?
     let hexData: String
 }
 
@@ -42,7 +42,7 @@ extension Action : Decodable {
         account = try container.decode(String.self, forKey: .account)
         name = try container.decode(String.self, forKey: .name)
         authorization = try container.decode([Action.Authorization].self, forKey: .authorization)
-        data = try container.decode(Action.Data.self, forKey: .data)
+        data = try container.decodeIfPresent(Action.Data.self, forKey: .data)
         hexData = try container.decode(String.self, forKey: .hexData)
     }
 }
@@ -70,23 +70,23 @@ extension Action.Data : Decodable {
     
     init(from: Decoder) throws {
         let container = try from.container(keyedBy: CodingKeys.self)
-        self.from = try container.decode(String.self, forKey: .from)
-        to = try container.decode(String.self, forKey: .to)
-        quantity = try container.decode(String.self, forKey: .quantity)
-        memo = try container.decode(String.self, forKey: .memo)
+        self.from = try container.decodeIfPresent(String.self, forKey: .from)
+        to = try container.decodeIfPresent(String.self, forKey: .to)
+        quantity = try container.decodeIfPresent(String.self, forKey: .quantity)
+        memo = try container.decodeIfPresent(String.self, forKey: .memo)
     }
 }
 
 struct Transaction {
-    let expiration: String
-    let refBlockNum: Int
-    let refBlockPrefix: Int
-    let maxNetUsageWords: Int
-    let maxCpuUsageMs: Int
-    let delaySec: Int
-    let contextFreeActions: [String]
-    let actions: [Action]
-    let transactionExtensions : [String]
+    var expiration: String = ""
+    var refBlockNum: Int = 0
+    var refBlockPrefix: Int = 0
+    var maxNetUsageWords: Int = 0
+    var maxCpuUsageMs: Int = 0
+    var delaySec: Int = 0
+    //let contextFreeActions: [String]
+    var actions: [Action] = []
+    //let transactionExtensions : [String]
 }
 
 extension Transaction : Decodable {
@@ -97,22 +97,26 @@ extension Transaction : Decodable {
         case maxNetUsageWords = "max_net_usage_words"
         case maxCpuUsageMs = "max_cpu_usage_ms"
         case delaySec = "delay_sec"
-        case contextFreeActions = "context_free_actions"
+        //case contextFreeActions = "context_free_actions"
         case actions = "actions"
-        case transactionExtensions = "transaction_extensions"
+        //case transactionExtensions = "transaction_extensions"
     }
     
     init(from: Decoder) throws {
-        let container = try from.container(keyedBy: CodingKeys.self)
-        expiration = try container.decode(String.self, forKey: .expiration)
-        refBlockNum = try container.decode(Int.self, forKey: .refBlockNum)
-        refBlockPrefix = try container.decode(Int.self, forKey: .refBlockPrefix)
-        maxNetUsageWords = try container.decode(Int.self, forKey: .maxNetUsageWords)
-        maxCpuUsageMs = try container.decode(Int.self, forKey: .maxCpuUsageMs)
-        delaySec = try container.decode(Int.self, forKey: .delaySec)
-        contextFreeActions = try container.decode([String].self, forKey: .contextFreeActions)
-        actions = try container.decode([Action].self, forKey: .actions)
-        transactionExtensions = try container.decode([String].self, forKey: .transactionExtensions)
+        do {
+            let container = try from.container(keyedBy: CodingKeys.self)
+            expiration = try container.decode(String.self, forKey: .expiration)
+            refBlockNum = try container.decode(Int.self, forKey: .refBlockNum)
+            refBlockPrefix = try container.decode(Int.self, forKey: .refBlockPrefix)
+            maxNetUsageWords = try container.decode(Int.self, forKey: .maxNetUsageWords)
+            maxCpuUsageMs = try container.decode(Int.self, forKey: .maxCpuUsageMs)
+            delaySec = try container.decode(Int.self, forKey: .delaySec)
+            //contextFreeActions = try container.decode([String].self, forKey: .contextFreeActions)
+            actions = try container.decode([Action].self, forKey: .actions)
+            //transactionExtensions = try container.decode([String].self, forKey: .transactionExtensions)
+        } catch (let error) {
+            print("Error while decoding Transaction: " + error.localizedDescription)
+        }
     }
 }
 
@@ -121,7 +125,7 @@ struct Trx {
     let signatures: [String]
     let compression: String
     let packedContextFreeData: String
-    let contextFreeData: [String]
+    //let contextFreeData: [String]
     let packedTrx: String
     let transaction: Transaction
 }
@@ -132,7 +136,7 @@ extension Trx : Decodable {
         case signatures = "signatures"
         case compression = "compression"
         case packedContextFreeData = "packed_context_free_data"
-        case contextFreeData = "context_free_data"
+        //case contextFreeData = "context_free_data"
         case packedTrx = "packed_trx"
         case transaction = "transaction"
     }
@@ -144,7 +148,7 @@ extension Trx : Decodable {
         signatures = try container.decode([String].self, forKey: .signatures)
         compression = try container.decode(String.self, forKey: .compression)
         packedContextFreeData = try container.decode(String.self, forKey: .packedContextFreeData)
-        contextFreeData = try container.decode([String].self, forKey: .contextFreeData)
+        //contextFreeData = try container.decode([String].self, forKey: .contextFreeData)
         packedTrx = try container.decode(String.self, forKey: .packedTrx)
         transaction = try container.decode(Transaction.self, forKey: .transaction)
     }

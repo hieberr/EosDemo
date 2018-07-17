@@ -18,10 +18,10 @@ struct BlockInfo {
     let actionMerckleRoot: String
     let scheduleVersion: Int
     let newProducers: [String]? // Not sure what this data would be. Assuming [String] for now.
-    let headerExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
+    //let headerExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
     let producerSignature: String
     let transactions: [TransactionHeader] // Not sure what this data would be. Assuming [String] for now.
-    let blockExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
+    //let blockExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
     let id: String
     let blockNum: Int
     let refBlockPrefix: Int
@@ -38,16 +38,17 @@ extension BlockInfo : Decodable {
         case scheduleVersion = "schedule_version"
         
         case newProducers = "new_producers"
-        case headerExtensions = "header_extensions"
+        //case headerExtensions = "header_extensions"
         case producerSignature = "producer_signature"
         case transactions = "transactions"
-        case blockExtensions = "block_extensions"
+        //case blockExtensions = "block_extensions"
         case id = "id"
         case blockNum = "block_num"
         case refBlockPrefix = "ref_block_prefix"
     }
     
     init(from: Decoder) throws {
+        
         let container = try from.container(keyedBy: CodingKeys.self)
         
         timestamp = try container.decode(String.self, forKey: .timestamp)
@@ -67,12 +68,18 @@ extension BlockInfo : Decodable {
             newProducers = nil
         }
         
-        headerExtensions = try container.decode([String].self, forKey: .headerExtensions)
+        //headerExtensions = try container.decode([String].self, forKey: .headerExtensions)
         producerSignature = try container.decode(String.self, forKey: .producerSignature)
-        transactions = try container.decode([TransactionHeader].self, forKey: .transactions)
-        blockExtensions = try container.decode([String].self, forKey: .blockExtensions)
+        do {
+            transactions = try container.decode([TransactionHeader].self, forKey: .transactions)
+        } catch (let error) {
+            print("Error while decoding TransactionHeader: " + error.localizedDescription)
+            transactions = []
+        }
+        //blockExtensions = try container.decode([String].self, forKey: .blockExtensions)
         id = try container.decode(String.self, forKey: .id)
         blockNum = try container.decode(Int.self, forKey: .blockNum)
         refBlockPrefix = try container.decode(Int.self, forKey: .refBlockPrefix)
+        
     }
 }
