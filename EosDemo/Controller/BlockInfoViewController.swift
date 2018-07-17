@@ -12,12 +12,7 @@ class BlockInfoViewController: UIViewController {
     var blockInfo: BlockInfo? = nil
 
     @IBOutlet weak var wideTextView: UITextView!
-    
     @IBOutlet weak var transactionsButton: UIButton!
-    
-    @IBAction func onTransactionButton(_ sender: Any) {
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +40,13 @@ class BlockInfoViewController: UIViewController {
         ]
         
         wideTextView.text = text.joined()
-        
         transactionsButton.isEnabled = info.transactions.count > 0
-        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        wideTextView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

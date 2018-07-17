@@ -9,7 +9,6 @@
 import UIKit
 
 class BlockSelectViewController: UIViewController {
-    
     var blockInfoToShow: BlockInfo? = nil
     var currentChainInfoRequest: ChainInfoRequest? = nil
     var currentBlockInfoRequest: BlockInfoRequest? = nil
@@ -40,17 +39,20 @@ class BlockSelectViewController: UIViewController {
             self?.connectionIndicator.stopAnimating()
             guard let chainInfo = info else {
                 // Error loading the chain info.
-                self?.statusLabel.text = "Error retrieving chain information"
+                self?.statusLabel.text = "Error retrieving chain information."
                 return
             }
             self?.loadBlockInfoFor(blockId: chainInfo.headBlockId)
+            self?.currentChainInfoRequest = nil
         })
     }
     
+    /// Attempts to load the block information (asynchronously) for a given block ID.
+    /// On successful result it segues to the blockInfo viewController.
+    /// - Parameter blockId: the block ID to fetch.
     func loadBlockInfoFor(blockId: String) {
         let url = networkUrl.appendingPathComponent("get_block")
         currentBlockInfoRequest = BlockInfoRequest(url: url, blockId: blockId)
-        currentChainInfoRequest = nil
         statusView.isHidden = false
         statusLabel.text = "Retriving Block..."
         connectionIndicator.startAnimating()
@@ -73,6 +75,7 @@ class BlockSelectViewController: UIViewController {
         resetStatusView()
     }
 
+    /// Hides and resets the statusView.
     func resetStatusView() {
         statusLabel.text = ""
         connectionIndicator.stopAnimating()
@@ -84,14 +87,9 @@ class BlockSelectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        guard let destination = segue.destination as? BlockInfoViewController else {
-            // Error
-            return
+        if let destination = segue.destination as? BlockInfoViewController {
+            destination.blockInfo = blockInfoToShow
         }
-        destination.blockInfo = blockInfoToShow
     }
 }

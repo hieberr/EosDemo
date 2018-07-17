@@ -8,17 +8,6 @@
 
 import Foundation
 
-//
-//  Request
-//  WordSearchGame
-//
-//  Created by floatingpoint on 7/2/18.
-//  Copyright © 2018 HologramPacific. All rights reserved.
-//
-// File URL:
-
-import Foundation
-
 /// Request a file from an asynchronous source which is Decodable into a Model.
 protocol Request: class {
     associatedtype Model
@@ -64,7 +53,7 @@ extension ChainInfoRequest: Request {
     }
     
     func load(withCompletion completion: @escaping (ChainInfo?) -> Void) {
-        var urlRequest = URLRequest(url: url)
+        let urlRequest = URLRequest(url: url)
         load(urlRequest, withCompletion: completion)
     }
 }
@@ -90,10 +79,11 @@ extension BlockInfoRequest: Request {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        let json: [String: Any] = ["block_num_or_id": blockId]
         
+        let json: [String: Any] = ["block_num_or_id": blockId]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         urlRequest.httpBody = jsonData
+        
         load(urlRequest, withCompletion: completion)
     }
 }

@@ -9,21 +9,7 @@
 import UIKit
 
 class TransactionsViewController: UIViewController {
-
-    @IBOutlet weak var previousButton: UIButton!
-    @IBAction func onPreviousButton(_ sender: UIButton) {
-        currentIndex -= 1
-    }
-    @IBOutlet weak var nextButton: UIButton!
-    @IBAction func onNextButton(_ sender: UIButton) {
-        currentIndex += 1
-    }
-    
-    @IBOutlet weak var currentTransactionsLabel: UILabel!
-    @IBOutlet weak var wideText: UITextView!
-    
     var transactions: [TransactionHeader] = []
-    
     private var _currentIndex = 0
     private var currentIndex: Int {
         get {
@@ -37,6 +23,18 @@ class TransactionsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var previousButton: UIButton!
+    @IBAction func onPreviousButton(_ sender: UIButton) {
+        currentIndex -= 1
+    }
+    @IBOutlet weak var nextButton: UIButton!
+    @IBAction func onNextButton(_ sender: UIButton) {
+        currentIndex += 1
+    }
+    
+    @IBOutlet weak var currentTransactionsLabel: UILabel!
+    @IBOutlet weak var wideText: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if transactions.count == 0 {
@@ -46,6 +44,8 @@ class TransactionsViewController: UIViewController {
         currentIndex = 0
     }
 
+    /// Updates the labels and text fields with the currently selected
+    /// transaction.
     private func updateDisplay() {
         currentTransactionsLabel.text = String(currentIndex + 1) + " / " + String(transactions.count)
         
@@ -112,6 +112,10 @@ class TransactionsViewController: UIViewController {
 
         text.append(actions)
         wideText.text = text.joined()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        wideText.setContentOffset(CGPoint.zero, animated: false)
     }
     
     override func didReceiveMemoryWarning() {

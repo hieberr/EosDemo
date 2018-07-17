@@ -18,10 +18,10 @@ struct BlockInfo {
     let actionMerckleRoot: String
     let scheduleVersion: Int
     let newProducers: [String]? // Not sure what this data would be. Assuming [String] for now.
-    //let headerExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
+    //let headerExtensions: [String] // Not sure what this data would be.
     let producerSignature: String
-    let transactions: [TransactionHeader] // Not sure what this data would be. Assuming [String] for now.
-    //let blockExtensions: [String] // Not sure what this data would be. Assuming [String] for now.
+    let transactions: [TransactionHeader] // Not sure what this data would be.
+    //let blockExtensions: [String] // Not sure what this data would be.
     let id: String
     let blockNum: Int
     let refBlockPrefix: Int
@@ -48,7 +48,6 @@ extension BlockInfo : Decodable {
     }
     
     init(from: Decoder) throws {
-        
         let container = try from.container(keyedBy: CodingKeys.self)
         
         timestamp = try container.decode(String.self, forKey: .timestamp)
@@ -80,6 +79,5 @@ extension BlockInfo : Decodable {
         id = try container.decode(String.self, forKey: .id)
         blockNum = try container.decode(Int.self, forKey: .blockNum)
         refBlockPrefix = try container.decode(Int.self, forKey: .refBlockPrefix)
-        
     }
 }

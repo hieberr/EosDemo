@@ -45,10 +45,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3i-Sa-RKU">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="W3i-Sa-RKU">
                                                 <rect key="frame" x="0.0" y="21.5" width="351" height="30"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-ua-K1W">
@@ -145,7 +145,6 @@
                                 <inset key="contentEdgeInsets" minX="24" minY="0.0" maxX="24" maxY="10"/>
                                 <state key="normal" title="Transactions &gt;"/>
                                 <connections>
-                                    <action selector="onTransactionButton:" destination="R9e-vH-0WD" eventType="touchUpInside" id="SS2-cP-LUr"/>
                                     <segue destination="uhw-li-OVn" kind="show" id="YHQ-DX-Luh"/>
                                 </connections>
                             </button>
@@ -179,19 +178,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zJp-tK-9qX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="96"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="76"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing Transaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-f9-x28">
-                                        <rect key="frame" x="108" y="0.0" width="159.5" height="32"/>
+                                        <rect key="frame" x="108" y="0.0" width="159.5" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-iT-qPA">
-                                        <rect key="frame" x="121.5" y="32" width="132" height="32"/>
+                                        <rect key="frame" x="121.5" y="25.5" width="132" height="25"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Siq-il-Ykn" userLabel="previousButton">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="&lt;"/>
                                                 <connections>
@@ -199,7 +198,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axt-ZR-oCz" userLabel="currentTransactionLabel">
-                                                <rect key="frame" x="30" y="0.0" width="72" height="32"/>
+                                                <rect key="frame" x="30" y="0.0" width="72" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="72" id="yiS-oT-1PZ"/>
                                                 </constraints>
@@ -208,7 +207,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtT-iW-LcM" userLabel="nextButton">
-                                                <rect key="frame" x="102" y="0.0" width="30" height="32"/>
+                                                <rect key="frame" x="102" y="0.0" width="30" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="&gt;"/>
                                                 <connections>
@@ -218,19 +217,19 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-YV-rQA" userLabel="renderRicardianButton">
-                                        <rect key="frame" x="129" y="64" width="117" height="32"/>
+                                        <rect key="frame" x="129" y="50.5" width="117" height="25.5"/>
                                         <state key="normal" title="Render Ricardian"/>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="Rvc-u1-VPa"/>
+                                    <constraint firstAttribute="height" constant="76" id="Rvc-u1-VPa"/>
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Bw-IgB" userLabel="wideText">
-                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -247,10 +246,10 @@
                         <viewLayoutGuide key="safeArea" id="2dv-eD-A1s"/>
                     </view>
                     <connections>
-                        <outlet property="currentTransactionsLabel" destination="Axt-ZR-oCz" id="A89-T1-Y6z"/>
-                        <outlet property="nextButton" destination="RtT-iW-LcM" id="x6f-BS-I4B"/>
-                        <outlet property="previousButton" destination="Siq-il-Ykn" id="I0j-5w-kgM"/>
-                        <outlet property="wideText" destination="DQ0-Bw-IgB" id="y6X-V8-Xnz"/>
+                        <outlet property="currentTransactionsLabel" destination="Axt-ZR-oCz" id="JDR-WP-fbX"/>
+                        <outlet property="nextButton" destination="RtT-iW-LcM" id="1Xa-FL-23C"/>
+                        <outlet property="previousButton" destination="Siq-il-Ykn" id="h3b-GZ-5PP"/>
+                        <outlet property="wideText" destination="DQ0-Bw-IgB" id="Rbf-3k-9kl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uO2-KS-bC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
