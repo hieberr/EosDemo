@@ -57,7 +57,7 @@ class TransactionTests: XCTestCase {
             XCTAssertEqual(result.trx.signatures[0], "SIG_K1_KdskWyhfzmo3ENsgH9vxKzGPKgZvz1c9wcc1sRhj28X8hYYZ6Udf2JyMULp2981dXwHgaqmQnYQHfNV1WmbGxWRYTU6vQ8")
             XCTAssertEqual(result.trx.compression, "none")
             XCTAssertEqual(result.trx.packedContextFreeData, "")
-            XCTAssertEqual(result.trx.contextFreeData.count, 0)
+            //XCTAssertEqual(result.trx.contextFreeData.count, 0)
             XCTAssertEqual(result.trx.packedTrx, "aef84c5b8a1cd9bcaa38000000000100a6823403ea3055000000572d3ccdcd0110aa4a5d4db7b23b00000000a8ed32322a10aa4a5d4db7b23b80a98a48a169a63b00794e010000000004454f53000000000931303237353132353800")
 
             XCTAssertEqual(result.trx.transaction.expiration, "2018-07-16T19:57:34")
@@ -66,9 +66,9 @@ class TransactionTests: XCTestCase {
             XCTAssertEqual(result.trx.transaction.maxNetUsageWords, 0)
             XCTAssertEqual(result.trx.transaction.maxCpuUsageMs, 0)
             XCTAssertEqual(result.trx.transaction.delaySec, 0)
-            XCTAssertEqual(result.trx.transaction.contextFreeActions.count, 0)
+            //XCTAssertEqual(result.trx.transaction.contextFreeActions.count, 0)
             XCTAssertEqual(result.trx.transaction.actions.count, 0)
-            XCTAssertEqual(result.trx.transaction.transactionExtensions.count, 0)
+            //XCTAssertEqual(result.trx.transaction.transactionExtensions.count, 0)
         } else {
             XCTAssert(false, "Failed to decode")
         }

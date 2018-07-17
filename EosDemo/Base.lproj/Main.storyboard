@@ -58,6 +58,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="Go"/>
+                                                <connections>
+                                                    <action selector="onGoButton:" destination="Mla-jo-e2X" eventType="touchUpInside" id="xMk-f6-QcN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,6 +113,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Select Block" id="Vbt-LC-XHW"/>
                     <connections>
+                        <outlet property="blockIdField" destination="W3i-Sa-RKU" id="E9K-jE-qiE"/>
                         <outlet property="connectionIndicator" destination="drd-Gd-gmY" id="hgK-jc-o6a"/>
                         <outlet property="statusLabel" destination="4VY-O2-aKO" id="zL3-ps-gU7"/>
                         <outlet property="statusView" destination="qHC-AY-3Fr" id="GyH-yG-Ex2"/>
