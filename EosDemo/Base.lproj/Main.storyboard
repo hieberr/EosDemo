@@ -117,6 +117,7 @@
                                 <state key="normal" title="Transactions &gt;"/>
                                 <connections>
                                     <action selector="onTransactionButton:" destination="R9e-vH-0WD" eventType="touchUpInside" id="SS2-cP-LUr"/>
+                                    <segue destination="uhw-li-OVn" kind="show" id="YHQ-DX-Luh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -139,6 +140,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ua-dk-obv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2049" y="-61"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="dCR-BB-U0p">
+            <objects>
+                <viewController title="Transactions" id="uhw-li-OVn" customClass="TransactionsViewController" customModule="EosDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R5i-jv-hGL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zJp-tK-9qX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="96"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing Transaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-f9-x28">
+                                        <rect key="frame" x="108" y="0.0" width="159.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-iT-qPA">
+                                        <rect key="frame" x="121.5" y="32" width="132" height="32"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Siq-il-Ykn" userLabel="previousButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="&lt;"/>
+                                                <connections>
+                                                    <action selector="onPreviousButton:" destination="uhw-li-OVn" eventType="touchUpInside" id="5Fn-fB-Dxe"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axt-ZR-oCz" userLabel="currentTransactionLabel">
+                                                <rect key="frame" x="30" y="0.0" width="72" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="72" id="yiS-oT-1PZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtT-iW-LcM" userLabel="nextButton">
+                                                <rect key="frame" x="102" y="0.0" width="30" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="&gt;"/>
+                                                <connections>
+                                                    <action selector="onNextButton:" destination="uhw-li-OVn" eventType="touchUpInside" id="DWF-Qn-fgc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-YV-rQA" userLabel="renderRicardianButton">
+                                        <rect key="frame" x="129" y="64" width="117" height="32"/>
+                                        <state key="normal" title="Render Ricardian"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="Rvc-u1-VPa"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Bw-IgB" userLabel="wideText">
+                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DQ0-Bw-IgB" firstAttribute="top" secondItem="zJp-tK-9qX" secondAttribute="bottom" id="4bK-Lp-Bhm"/>
+                            <constraint firstItem="2dv-eD-A1s" firstAttribute="trailing" secondItem="DQ0-Bw-IgB" secondAttribute="trailing" id="Cux-8a-w9E"/>
+                            <constraint firstItem="DQ0-Bw-IgB" firstAttribute="leading" secondItem="2dv-eD-A1s" secondAttribute="leading" id="Nya-HM-WnP"/>
+                            <constraint firstItem="2dv-eD-A1s" firstAttribute="trailing" secondItem="zJp-tK-9qX" secondAttribute="trailing" id="W6a-ja-Xx1"/>
+                            <constraint firstItem="zJp-tK-9qX" firstAttribute="top" secondItem="2dv-eD-A1s" secondAttribute="top" id="eoq-GZ-zY8"/>
+                            <constraint firstItem="2dv-eD-A1s" firstAttribute="bottom" secondItem="DQ0-Bw-IgB" secondAttribute="bottom" id="tJO-zq-R5e"/>
+                            <constraint firstItem="zJp-tK-9qX" firstAttribute="leading" secondItem="2dv-eD-A1s" secondAttribute="leading" id="v0F-Pa-CDr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2dv-eD-A1s"/>
+                    </view>
+                    <connections>
+                        <outlet property="currentTransactionsLabel" destination="Axt-ZR-oCz" id="A89-T1-Y6z"/>
+                        <outlet property="nextButton" destination="RtT-iW-LcM" id="x6f-BS-I4B"/>
+                        <outlet property="previousButton" destination="Siq-il-Ykn" id="I0j-5w-kgM"/>
+                        <outlet property="wideText" destination="DQ0-Bw-IgB" id="y6X-V8-Xnz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uO2-KS-bC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3020" y="-60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VPf-rh-gf8">

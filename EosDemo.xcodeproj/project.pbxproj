@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E48924AF20FE66D600D36A80 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48924AE20FE66D600D36A80 /* TransactionsViewController.swift */; };
 		E4F29EA120FD140D00BD3E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EA020FD140D00BD3E53 /* AppDelegate.swift */; };
 		E4F29EA320FD140D00BD3E53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EA220FD140D00BD3E53 /* ViewController.swift */; };
 		E4F29EA620FD140D00BD3E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F29EA420FD140D00BD3E53 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E48924AE20FE66D600D36A80 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		E4F29E9D20FD140D00BD3E53 /* EosDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EosDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F29EA020FD140D00BD3E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F29EA220FD140D00BD3E53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				E4F29EE820FD9A6400BD3E53 /* BlockInfoViewController.swift */,
 				E4F29EEB20FD9A7300BD3E53 /* BlockSelectViewController.swift */,
+				E48924AE20FE66D600D36A80 /* TransactionsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			files = (
 				E4F29EA320FD140D00BD3E53 /* ViewController.swift in Sources */,
 				E4F29ED620FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
+				E48924AF20FE66D600D36A80 /* TransactionsViewController.swift in Sources */,
 				E4F29EE220FD625E00BD3E53 /* Transaction.swift in Sources */,
 				E4F29ED920FD2DB800BD3E53 /* BlockInfo.swift in Sources */,
 				E4F29EEC20FD9A7300BD3E53 /* BlockSelectViewController.swift in Sources */,
