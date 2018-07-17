@@ -8,10 +8,27 @@
 
 import Foundation
 
+/// Task returned by a Request object.
+protocol RequestTask {
+    /// Cancels the task.
+    func cancel()
+}
+
+class URLSessionRequestTask : RequestTask {
+    let task: URLSessionDataTask
+    init(task: URLSessionDataTask) {
+        self.task = task
+    }
+    
+    func cancel() {
+        task.cancel()
+    }
+}
+
 /// Request a file from an asynchronous source which is Decodable into a Model.
 protocol Request: class {
     associatedtype Model
-    func load(withCompletion completion: @escaping (Model?) -> Void)
+    func load(withCompletion completion: @escaping (Model?) -> Void) -> RequestTask
     func decode(_ data: Data) -> Model?
 }
 
@@ -22,7 +39,7 @@ extension Request {
     /// - Parameters:
     ///   - url: The url that the resource exists at.
     ///   - completion: Callback which receives the decoded Model if successful. nil is returned if the resource could not be downloaded or could not be decoded.
-    fileprivate func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (Model?) -> Void) {
+    fileprivate func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (Model?) -> Void) -> RequestTask {
         let configuration = URLSessionConfiguration.ephemeral
         let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
         
@@ -34,6 +51,7 @@ extension Request {
             completion(self?.decode(data))
         })
         task.resume()
+        return URLSessionRequestTask(task: task)
     }
 }
 
@@ -52,9 +70,9 @@ extension ChainInfoRequest: Request {
         return decoded
     }
     
-    func load(withCompletion completion: @escaping (ChainInfo?) -> Void) {
+    func load(withCompletion completion: @escaping (ChainInfo?) -> Void) -> RequestTask {
         let urlRequest = URLRequest(url: url)
-        load(urlRequest, withCompletion: completion)
+        return load(urlRequest, withCompletion: completion)
     }
 }
 
@@ -75,7 +93,7 @@ extension BlockInfoRequest: Request {
         return decoded
     }
     
-    func load(withCompletion completion: @escaping (BlockInfo?) -> Void) {
+    func load(withCompletion completion: @escaping (BlockInfo?) -> Void) -> RequestTask {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -84,6 +102,6 @@ extension BlockInfoRequest: Request {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         urlRequest.httpBody = jsonData
         
-        load(urlRequest, withCompletion: completion)
+        return load(urlRequest, withCompletion: completion)
     }
 }

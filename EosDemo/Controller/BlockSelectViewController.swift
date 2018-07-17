@@ -13,11 +13,16 @@ class BlockSelectViewController: UIViewController {
     var currentChainInfoRequest: ChainInfoRequest? = nil
     var currentBlockInfoRequest: BlockInfoRequest? = nil
     let networkUrl = URL(string: "https://api.eosnewyork.io/v1/chain")!
+    var currentRequest: RequestTask? = nil
     
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
 
     @IBAction func onCancelButton(_ sender: Any) {
+        if let task = currentRequest {
+            task.cancel()
+            currentRequest = nil
+        }
         resetStatusView()
     }
     @IBOutlet weak var blockIdField: UITextField!
@@ -35,7 +40,7 @@ class BlockSelectViewController: UIViewController {
         statusView.isHidden = false
         statusLabel.text = "Connecting..."
         connectionIndicator.startAnimating()
-        currentChainInfoRequest?.load(withCompletion: {[weak self] info in
+        currentRequest = currentChainInfoRequest?.load(withCompletion: {[weak self] info in
             self?.connectionIndicator.stopAnimating()
             guard let chainInfo = info else {
                 // Error loading the chain info.
@@ -56,7 +61,7 @@ class BlockSelectViewController: UIViewController {
         statusView.isHidden = false
         statusLabel.text = "Retriving Block..."
         connectionIndicator.startAnimating()
-        currentBlockInfoRequest?.load(withCompletion: {[weak self] info in
+        currentRequest = currentBlockInfoRequest?.load(withCompletion: {[weak self] info in
             self?.connectionIndicator.stopAnimating()
             self?.blockInfoToShow = info
             if info == nil {
