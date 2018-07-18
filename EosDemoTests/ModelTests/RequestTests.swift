@@ -25,7 +25,7 @@ class RequestTests: XCTestCase {
         let expectation = self.expectation(description: "received response")
         
         let request = ChainInfoRequest(url: URL(string: "https://api.eosnewyork.io/v1/chain/get_info")!)
-        request.load(withCompletion: { info in
+        _ = request.load(withCompletion: { info in
             expectation.fulfill()
             if let info = info {
                 XCTAssertNotEqual(info.headBlockId, "")
@@ -45,7 +45,7 @@ class RequestTests: XCTestCase {
         
         let blockId = "005f1de277ee9bc9d887a563322785c2d0fa2d4aab05ccd655ec9cb64aa47db3"
         let request = BlockInfoRequest(url: URL(string: "https://api.eosnewyork.io/v1/chain/get_block")!, blockId: blockId)
-        request.load(withCompletion: { info in
+        _ = request.load(withCompletion: { info in
             expectation.fulfill()
             if let info = info {
                 // Make sure we got some valid data.
