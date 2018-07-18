@@ -37,10 +37,12 @@ class BlockSelectViewController: UIViewController {
         currentChainInfoRequest = ChainInfoRequest(url: url)
         
         statusView.isHidden = false
-        statusLabel.text = "Connecting..."
+        self.connectionIndicator.isHidden = false
+        statusLabel.text = "Retriving Head Block ID..."
         connectionIndicator.startAnimating()
         currentRequest = currentChainInfoRequest?.load(withCompletion: {[weak self] info in
             self?.connectionIndicator.stopAnimating()
+            self?.connectionIndicator.isHidden = true
             guard let chainInfo = info else {
                 // Error loading the chain info.
                 self?.statusLabel.text = "Error retrieving chain information."
@@ -59,9 +61,11 @@ class BlockSelectViewController: UIViewController {
         currentBlockInfoRequest = BlockInfoRequest(url: url, blockId: blockId)
         statusView.isHidden = false
         statusLabel.text = "Retriving Block..."
+        self.connectionIndicator.isHidden = false
         connectionIndicator.startAnimating()
         currentRequest = currentBlockInfoRequest?.load(withCompletion: {[weak self] info in
             self?.connectionIndicator.stopAnimating()
+            self?.connectionIndicator.isHidden = true
             self?.blockInfoToShow = info
             if info == nil {
                 // Error loading the block.
