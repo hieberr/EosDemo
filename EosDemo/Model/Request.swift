@@ -18,6 +18,7 @@ protocol RequestTask {
 
 class URLSessionRequestTask : RequestTask {
     let task: URLSessionDataTask
+    
     init(task: URLSessionDataTask) {
         self.task = task
     }

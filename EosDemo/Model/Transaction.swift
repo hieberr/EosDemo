@@ -2,12 +2,15 @@
 //  Transaction.swift
 //  EosDemo
 //
-//  Contains Data Model objects related to a Transaction.
+//  Contains Data Model objects related to a Transaction in the same hierarchy
+//  as is represented in the BlockInfo.Transactions JSON.
+//
 //  Created by floatingpoint on 7/16/18.
 //  Copyright © 2018 HologramPacific. All rights reserved.
 //
 
 import Foundation
+/// Contains Transaction action information.
 struct Action {
     struct Data {
         let from: String?
@@ -77,6 +80,7 @@ extension Action.Data : Decodable {
     }
 }
 
+/// Contains transaction information.
 struct Transaction {
     var expiration: String = ""
     var refBlockNum: Int = 0
@@ -88,6 +92,7 @@ struct Transaction {
     var actions: [Action] = []
     //let transactionExtensions : [String]
 }
+
 
 extension Transaction : Decodable {
     private enum CodingKeys: String, CodingKey {
@@ -120,6 +125,7 @@ extension Transaction : Decodable {
     }
 }
 
+/// Contains transaction information.
 struct Trx {
     let id: String
     let signatures: [String]
@@ -129,6 +135,7 @@ struct Trx {
     let packedTrx: String
     let transaction: Transaction
 }
+
 
 extension Trx : Decodable {
     private enum CodingKeys: String, CodingKey {
@@ -154,7 +161,7 @@ extension Trx : Decodable {
     }
 }
 
-
+/// Contains transaction information.
 struct TransactionHeader {
     let status: String
     let cpuUsageUs: Int

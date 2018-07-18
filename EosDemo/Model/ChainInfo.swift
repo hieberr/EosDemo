@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// Contains all the info about a chain. Currently this only has the head block ID and Number
-// so we can look up a block.
+/// Contains all the info about a chain. Currently this only has the head
+/// block ID and Number so we can look up a block.
 struct ChainInfo {
     let headBlockNum: Int
     let headBlockId: String

@@ -9,6 +9,7 @@
 import Foundation
 
 
+/// Contains Abi Action information.
 struct AbiAction {
     let ricardianContract: String
     func render(with: Action, transactionDelay: Int) -> String {
@@ -45,6 +46,7 @@ extension AbiAction : Decodable {
     }
 }
 
+// Contains Abi info returned from get_abi RPC. 
 struct AbiInfo {
     let actions: [AbiAction]
 }
