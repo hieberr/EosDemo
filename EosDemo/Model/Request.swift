@@ -8,6 +8,8 @@
 
 import Foundation
 
+let networkUrl = URL(string: "https://api.eosnewyork.io/v1/chain")!
+
 /// Task returned by a Request object.
 protocol RequestTask {
     /// Cancels the task.
@@ -102,6 +104,35 @@ extension BlockInfoRequest: Request {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         urlRequest.httpBody = jsonData
         
+        return load(urlRequest, withCompletion: completion)
+    }
+}
+
+/// Used to request info about an abi.
+class AbiInfoRequest {
+    let url: URL
+    let accountName: String
+    
+    init(url: URL, accountName: String) {
+        self.url = url
+        self.accountName = accountName
+    }
+}
+
+extension AbiInfoRequest: Request {
+    func decode(_ data: Data) -> AbiInfo? {
+        let decoded = try?JSONDecoder().decode(AbiInfo.self, from: data)
+        return decoded
+    }
+    
+    func load(withCompletion completion: @escaping (AbiInfo?) -> Void) -> RequestTask {
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
+        let json: [String: Any] = ["account_name": accountName]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        urlRequest.httpBody = jsonData
         return load(urlRequest, withCompletion: completion)
     }
 }

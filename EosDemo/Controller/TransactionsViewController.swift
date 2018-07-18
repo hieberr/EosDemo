@@ -10,6 +10,13 @@ import UIKit
 
 class TransactionsViewController: UIViewController {
     var transactions: [TransactionHeader] = []
+    
+    // We need to hang on to each request or else it will be deleted before
+    // the completion is called. So we store it in this dictionary
+    // with it's associated account name as the key.
+    // Once the request is complete it gets removed.
+    var abiRequests: [String: AbiInfoRequest] = [:]
+    
     private var _currentIndex = 0
     private var currentIndex: Int {
         get {
@@ -112,10 +119,36 @@ class TransactionsViewController: UIViewController {
 
         text.append(actions)
         wideText.text = text.joined()
+        getAndAppendRenderedContracts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         wideText.setContentOffset(CGPoint.zero, animated: false)
+    }
+
+    /// Asynchronously fetches the ricardian contract for each action in the current
+    /// transaction. Once received, it is rendered and appended to the text content.
+    func getAndAppendRenderedContracts() {
+        wideText.text.append("++++++ Ricardian Contracts ++++++\n\n")
+        let transactionActions = transactions[currentIndex].trx.transaction.actions
+        let transaction = transactions[currentIndex]
+        for (i, tAction) in transactionActions.enumerated() {
+            let account = tAction.account
+            let request = AbiInfoRequest(url: networkUrl.appendingPathComponent("get_abi"), accountName: account)
+            abiRequests[account] = request
+            
+            _ = request.load { [weak self] (info) in
+                self?.abiRequests.removeValue(forKey: account)
+                if let info = info {
+                    if i < info.actions.count {
+                        let rendered = info.actions[i].render(with: tAction, transactionDelay: transaction.trx.transaction.delaySec)
+                        self?.wideText.text.append(rendered + "\n\n")
+                    }
+                } else {
+                    // Error, no info returned
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,7 +156,6 @@ class TransactionsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

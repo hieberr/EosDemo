@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E48924AF20FE66D600D36A80 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48924AE20FE66D600D36A80 /* TransactionsViewController.swift */; };
+		E48924B120FEC6B000D36A80 /* AbiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48924B020FEC6B000D36A80 /* AbiInfo.swift */; };
+		E48924B320FEC78B00D36A80 /* AbiInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48924B220FEC78B00D36A80 /* AbiInfoTests.swift */; };
+		E48924B420FEC82700D36A80 /* AbiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48924B020FEC6B000D36A80 /* AbiInfo.swift */; };
+		E48924B520FEC90600D36A80 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48924AE20FE66D600D36A80 /* TransactionsViewController.swift */; };
 		E4F29EA120FD140D00BD3E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29EA020FD140D00BD3E53 /* AppDelegate.swift */; };
 		E4F29EA620FD140D00BD3E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F29EA420FD140D00BD3E53 /* Main.storyboard */; };
 		E4F29EA820FD140F00BD3E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F29EA720FD140F00BD3E53 /* Assets.xcassets */; };
@@ -52,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		E48924AE20FE66D600D36A80 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		E48924B020FEC6B000D36A80 /* AbiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiInfo.swift; sourceTree = "<group>"; };
+		E48924B220FEC78B00D36A80 /* AbiInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiInfoTests.swift; sourceTree = "<group>"; };
 		E4F29E9D20FD140D00BD3E53 /* EosDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EosDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F29EA020FD140D00BD3E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F29EA520FD140D00BD3E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				E4F29ED520FD2D1000BD3E53 /* ChainInfo.swift */,
 				E4F29ED820FD2DB800BD3E53 /* BlockInfo.swift */,
 				E4F29EE120FD625E00BD3E53 /* Transaction.swift */,
+				E48924B020FEC6B000D36A80 /* AbiInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 				E4F29EDB20FD375C00BD3E53 /* BlockInfoTests.swift */,
 				E4F29EDD20FD4A5600BD3E53 /* RequestTests.swift */,
 				E4F29EE520FD7B1600BD3E53 /* TransactionTests.swift */,
+				E48924B220FEC78B00D36A80 /* AbiInfoTests.swift */,
 			);
 			path = ModelTests;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 				E4F29ED620FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
 				E48924AF20FE66D600D36A80 /* TransactionsViewController.swift in Sources */,
 				E4F29EE220FD625E00BD3E53 /* Transaction.swift in Sources */,
+				E48924B120FEC6B000D36A80 /* AbiInfo.swift in Sources */,
 				E4F29ED920FD2DB800BD3E53 /* BlockInfo.swift in Sources */,
 				E4F29EEC20FD9A7300BD3E53 /* BlockSelectViewController.swift in Sources */,
 				E4F29EE920FD9A6400BD3E53 /* BlockInfoViewController.swift in Sources */,
@@ -335,12 +344,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48924B520FEC90600D36A80 /* TransactionsViewController.swift in Sources */,
+				E48924B320FEC78B00D36A80 /* AbiInfoTests.swift in Sources */,
 				E4F29EB620FD140F00BD3E53 /* EosDemoTests.swift in Sources */,
 				E4F29EE620FD7B1600BD3E53 /* TransactionTests.swift in Sources */,
 				E4F29EEA20FD9A6400BD3E53 /* BlockInfoViewController.swift in Sources */,
 				E4F29EDE20FD4A5600BD3E53 /* RequestTests.swift in Sources */,
 				E4F29EE320FD625E00BD3E53 /* Transaction.swift in Sources */,
 				E4F29ED720FD2D1000BD3E53 /* ChainInfo.swift in Sources */,
+				E48924B420FEC82700D36A80 /* AbiInfo.swift in Sources */,
 				E4F29EDA20FD2DB800BD3E53 /* BlockInfo.swift in Sources */,
 				E4F29EDC20FD375C00BD3E53 /* BlockInfoTests.swift in Sources */,
 				E4F29EED20FD9A7300BD3E53 /* BlockSelectViewController.swift in Sources */,

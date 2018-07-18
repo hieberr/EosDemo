@@ -12,7 +12,6 @@ class BlockSelectViewController: UIViewController {
     var blockInfoToShow: BlockInfo? = nil
     var currentChainInfoRequest: ChainInfoRequest? = nil
     var currentBlockInfoRequest: BlockInfoRequest? = nil
-    let networkUrl = URL(string: "https://api.eosnewyork.io/v1/chain")!
     var currentRequest: RequestTask? = nil
     
     @IBOutlet weak var statusView: UIView!
