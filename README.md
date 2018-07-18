@@ -1,6 +1,6 @@
 # EOS Demo
 
-A simple app for viewing blocks on the EOS test network.
+A simple app for viewing blocks on the EOS test network. In it's current form it's not pretty but it displays the information. In the future I would like to break up the information into seperate labels and text fields and format things a little nicer.
 
 ### Usage:
 Press "Head Block" to display the most recent block on the chain. Or, enter the block ID or number that you would like to view and press "Go"
